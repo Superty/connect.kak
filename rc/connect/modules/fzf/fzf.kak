@@ -19,6 +19,10 @@ provide-module connect-fzf %{
     + :fzf-files %arg{@}
   }
 
+  define-command fzf-files-git -docstring 'Open files in current git repo or pwd if none with fzf' %{
+    + :fzf-files-git
+  }
+
   # Buffers
   define-command fzf-buffers -params ..1 -buffer-completion -docstring 'Open buffers with fzf' %{
     + :fzf-buffers %arg{@}

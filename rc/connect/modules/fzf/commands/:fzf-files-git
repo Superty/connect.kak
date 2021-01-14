@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# fzf
+# https://github.com/junegunn/fzf
+
+# Dependencies:
+# – fd (https://github.com/sharkdp/fd)
+# – bat (https://github.com/sharkdp/bat)
+
+dir=$(git rev-parse --show-toplevel 2> /dev/null)
+cd ${dir:-$PWD}
+fd --type file . . |
+fzf |
+:edit
