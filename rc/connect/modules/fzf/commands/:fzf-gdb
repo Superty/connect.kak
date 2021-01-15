@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# fzf
+# https://github.com/junegunn/fzf
+
+# Dependencies:
+# – fasd (https://github.com/clvv/fasd)
+# – kakoune-gdb (https://github.com/occivink/kakoune-gdb)
+
+exe=$(
+  for f in $(fasd -Rfl); do
+    if [ -x "$f" ] && file "$f" | grep -q "ELF"; then
+      echo $f;
+    fi
+  done | fzf)
+:send 'gdb-session-new' "$exe" "-ex 'cd $(dirname $exe)'"
+:send 'gdb-enable-autojump'
