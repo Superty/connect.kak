@@ -13,5 +13,6 @@ exe=$(
       echo $f;
     fi
   done | fzf)
+{ eval "fasd --proc $(fasd --sanitize cmd $exe)"; } >> "/dev/null" 2>&1
 :send 'gdb-session-new' "$exe" "-ex 'cd $(dirname $exe)'"
 :send 'gdb-enable-autojump'
