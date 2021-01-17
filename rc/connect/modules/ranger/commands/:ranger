@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# ranger
+# https://github.com/ranger/ranger
+
+ranger
