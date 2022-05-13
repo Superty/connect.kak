@@ -9,6 +9,10 @@ provide-module connect-ranger %{
   set-option -add global connect_paths "%opt{connect_modules_path}/ranger/commands"
 
   define-command ranger -docstring 'Open ranger' %{
-    + :ranger
+    + :ranger 
+  }
+
+  define-command ranger-here -docstring 'Open ranger' %{
+    + :ranger-here %val{buffile}
   }
 }

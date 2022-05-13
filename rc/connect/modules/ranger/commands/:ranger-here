@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# ranger
+# https://github.com/ranger/ranger
+
+file="$1"
+dir="$(dirname $file)"
+# export VISUAL='kill -9 $PPID'
+ranger "$dir"
+
